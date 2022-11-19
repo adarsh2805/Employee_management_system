@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+
+{% block bodyblock %}
+    <div class="container">
+        <center> <p class="h1">ADD NEW EMPLOYEE</p></center>
+        <hr>
+
+
+
+        <form class="row g-3" method="POST" action="/add">
+          {% csrf_token %}
+
+           <div class="col-md-6">
+            <label for="firstname" class="form-label">firstname</label>
+            <input type="text" class="form-control" name="firstname">
+          </div>
+
+
+
+          <div class="col-md-6">
+            <label for="lastname" class="form-label">lastname</label>
+            <input type="text" class="form-control" name="lastname">
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="salary" class="form-label">salary</label>
+            <input type="text" class="form-control" name="salary">
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="bonus" class="form-label">bonus</label>
+            <input type="text" class="form-control" name="bonus">
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="phone" class="form-label">phone</label>
+            <input type="text" class="form-control" name="phone">
+          </div>
+      
+          <div class="col-md-12">
+            <label class="form-label" for="autoSizingSelect">role</label>
+            <select class="form-select" id="autoSizingSelect" name="role" >
+              <option selected>Choose...</option>
+              {% for rol in role_det %}
+              <option value={{rol.id}}>{{rol.name}}</option>
+              {% endfor %}
+            </select>
+            </div>
+
+
+
+
+
+
+
+
+          <div class="col-md-12">
+            <label class="form-label" for="autoSizingSelect">DEPARTMENT</label>
+            <select class="form-select" id="autoSizingSelect" name="dept">
+              <option selected>Choose...</option>
+              {% for dep in dept_det %}
+              <option value={{dep.id}}>{{dep.name}}</option>
+              {% endfor %}
+            </select>
+            </div>
+
+
+
+
+          <div class="col-md-6">
+            <label for="location" class="form-label">location</label>
+            <input type="text" class="form-control" name="location">
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="hire_date" class="form-label">hire date</label>
+            <input type="date" class="form-control" name="hire_date">
+          </div>
+        
+        
+        
+          <div class="col-1">
+            <button type="submit" class="btn btn-primary"> ADD_EMPLOYEE</button>
+            
+          </div>
+          <div class="col-2">
+            <center>  <a class="btn btn-primary" href="/" role="button">BACK</a></center>
+          </div>
+        </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    {% endblock %}

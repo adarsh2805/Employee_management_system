@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+
+{% block bodyblock %}
+    <div class="container">
+        <center> <p class="h1">ALL EMPLOYEE DETAILS</p></center>
+        <hr>
+        <table class="table table-success table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">salary</th>
+              <th scope="col">bonus</th>
+              <th scope="col">phone</th>
+              <th scope="col">role</th>
+              <th scope="col">dept</th>
+              <th scope="col">location</th>
+              <th scope="col">hiredate</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for emp in det %}
+            <tr>
+              <th scope="row">{{emp.firstname}}</th>
+              <td>{{emp.lastname}}</td>
+              <td>{{emp.salary}}</td>
+              <td>{{emp.bonus}}</td>
+              <td>{{emp.phone}}</td>
+              <td>{{emp.role.name}}</td>
+              <td>{{emp.dapt.name}}</td>
+              <td>{{emp.dapt.location}}</td>
+              <td>{{emp.hire_date}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      <center>  <a class="btn btn-lg btn-primary" href="/" role="button">BACK</a></center>
+    
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    {% endblock %}
